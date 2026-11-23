@@ -1,0 +1,47 @@
+name: Deploy VuePress v2 to page branch
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-vuepress-v2
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install exact dependencies
+        run: npm ci
+
+      - name: Build VuePress v2 static site
+        env:
+          BASE_PATH: /vuepress-v2/
+        run: npm run build
+
+      - name: Ensure .nojekyll exists in dist
+        run: touch docs/.vuepress/dist/.nojekyll
+
+      - name: Publish static output to orphan page branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vuepress/dist
+          publish_branch: page
+          force_orphan: true
+          commit_message: "deploy(page): build from ${{ github.sha }}"
