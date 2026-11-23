@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vitepress/dist/
+.vitepress/cache/
+docs/.vuepress/dist/
+.vuepress/dist/
+.vuepress/.temp/
+.vuepress/.cache/
+.DS_Store
