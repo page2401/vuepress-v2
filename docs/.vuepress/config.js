@@ -18,12 +18,20 @@ export default defineUserConfig({
     repo: 'page2401/vuepress-v2',
     contributors: false,
     lastUpdated: false,
+    themePlugins: {
+      shiki: {
+        notationDiff: true,
+        notationHighlight: true,
+        langs: ['ts', 'js', 'json', 'bash', 'diff', 'markdown', 'yaml', 'vue']
+      }
+    },
     navbar: [
       { text: '← 返回对比总站', link: 'https://page.2401.xyz/' },
       { text: '01. 标注', link: '/01-annotations.html' },
       { text: '02. 流程图', link: '/02-diagrams.html' },
       { text: '03. 公式', link: '/03-math.html' },
-      { text: '04. 目录结构', link: '/04-directory/' }
+      { text: '04. 目录结构', link: '/04-directory/' },
+      { text: '05. 代码高亮', link: '/05-code-blocks.html' }
     ],
     sidebar: [
       {
@@ -48,7 +56,8 @@ export default defineUserConfig({
                 ]
               }
             ]
-          }
+          },
+          { text: '05. 高阶代码块与语法高亮', link: '/05-code-blocks.html' }
         ]
       }
     ]
