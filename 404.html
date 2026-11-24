@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN" data-appearance="auto">
+  <head>
+    <script>
+      ;(() => {
+        const root = document.documentElement
+        // appearance is injected into this template at build time, so the very
+        // first paint can follow the site config instead of only the browser
+        // preferences and the storage
+        const appearance = root.dataset.appearance || 'auto'
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches
+        let isDark = false
+
+        if (appearance === 'force-dark') {
+          isDark = true
+        } else if (appearance === 'force-auto') {
+          isDark = prefersDark
+        } else if (appearance === 'light') {
+          isDark = false
+        } else {
+          const fallback = appearance === 'dark' ? 'dark' : 'auto'
+          const preference =
+            localStorage.getItem('vuepress-color-scheme') || fallback
+
+          isDark = preference === 'auto' ? prefersDark : preference === 'dark'
+        }
+
+        root.dataset.theme = isDark ? 'dark' : 'light'
+      })()
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.32" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      html[data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+
+      /* the theme css is loaded asynchronously, so the first paint has to use
+         the theme text color to avoid a flash of the browser default color */
+      body {
+        color: #3c3c43;
+      }
+
+      html[data-theme='dark'] body {
+        color: #dfdfd6;
+      }
+    </style>
+    <title>VuePress v2 (2.0-rc.32)</title><meta name="description" content="SSG 多版本实测基准子站 — VuePress 2.0.0-rc.32 + 官方 Hint / KaTeX / Mermaid 12 插件">
+    <link rel="preload" href="/vuepress-v2/assets/style-B43CTjeu.css" as="style"><link rel="stylesheet" href="/vuepress-v2/assets/style-B43CTjeu.css">
+    <link rel="modulepreload" href="/vuepress-v2/assets/app-DhNpujvM.js"><link rel="modulepreload" href="/vuepress-v2/assets/404.html-CUBsd1ji.js">
+    
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container" data-v-433401d2><!--[--><!--]--><!--[--><span tabindex="-1" data-v-46f487f3></span><a href="#vp-content" class="vp-skip-link visually-hidden" data-v-46f487f3>Skip to content</a><!--]--><!----><header class="vp-nav" data-v-433401d2 data-v-aada68e1><div class="vp-navbar has-sidebar top" data-v-aada68e1 data-v-5deedf4d><div class="wrapper" data-v-5deedf4d><div class="container" data-v-5deedf4d><div class="title" data-v-5deedf4d><div class="vp-navbar-title has-sidebar" data-v-5deedf4d data-v-d76ab35c><a class="route-link title" href="/vuepress-v2/" title="VuePress v2 (2.0-rc.32)" data-v-d76ab35c><!--[--><!--]--><!----><span data-v-d76ab35c>VuePress v2 (2.0-rc.32)</span><!--[--><!--]--></a></div></div><div class="content" data-v-5deedf4d><div class="content-body" data-v-5deedf4d><!--[--><!--]--><div class="vp-navbar-search search" data-v-5deedf4d data-v-3dc7fb66><!----></div><!----><!----><div class="vp-nav-appearance vp-navbar-appearance appearance" data-v-5deedf4d data-v-70d12294><!----><button class="vp-switch vp-switch-appearance" type="button" role="switch" title aria-label="Appearance" aria-checked="false" data-v-70d12294 data-v-b0e493d4 data-v-a3e796d0><span class="check" data-v-a3e796d0><span class="icon" data-v-a3e796d0><!--[--><span class="vpi-sun sun" aria-hidden="true" data-v-b0e493d4></span><span class="vpi-moon moon" aria-hidden="true" data-v-b0e493d4></span><!--]--></span></span></button></div><!----><!----><!--[--><!--]--><button type="button" class="vp-navbar-hamburger hamburger" aria-label="Menu" aria-expanded="false" data-v-5deedf4d data-v-0b4e1fe9><span class="container" aria-hidden="true" data-v-0b4e1fe9><span class="top" data-v-0b4e1fe9></span><span class="middle" data-v-0b4e1fe9></span><span class="bottom" data-v-0b4e1fe9></span></span></button></div></div></div></div><div class="divider" data-v-5deedf4d><div class="divider-line" data-v-5deedf4d></div></div></div><!----></header><div class="vp-local-nav has-sidebar empty" data-v-433401d2 data-v-20397592><div class="container" data-v-20397592><button type="button" class="menu" aria-expanded="false" aria-controls="vp-sidebar-nav" data-v-20397592><span class="vpi-text-align-start menu-icon" aria-hidden="true" data-v-20397592></span><span class="menu-text" data-v-20397592>Menu</span></button><div class="vp-local-nav-outline-dropdown" style="--vp-vh:0px;" data-allow-mismatch="style" data-v-20397592 data-v-a05ca544><button type="button" data-v-a05ca544>Return to top</button><!----></div></div></div><aside class="vp-sidebar" data-v-433401d2 data-v-3c301ce9><div class="curtain" data-v-3c301ce9></div><nav class="nav" id="vp-sidebar-nav" aria-labelledby="sidebar-aria-label" tabindex="-1" data-v-3c301ce9><span class="visually-hidden" id="sidebar-aria-label" data-v-3c301ce9> Sidebar Navigation </span><!--[--><!--]--><!--[--><div class="no-transition group" data-v-a6ea8bdf><div class="vp-sidebar-item level-0" data-v-a6ea8bdf data-v-bc1f2e99><!----><ul class="items" data-v-bc1f2e99><li data-v-bc1f2e99><!--[--><div class="vp-sidebar-item level-1" data-v-bc1f2e99><div class="item" data-v-bc1f2e99><div class="indicator" data-v-bc1f2e99></div><p class="text" data-v-bc1f2e99><!----><bdi data-v-bc1f2e99>VuePress v2 基准套件</bdi></p><!----></div><!----></div><!--]--></li></ul></div></div><!--]--><!--[--><!--]--></nav></aside><div class="vp-content has-sidebar" id="vp-content" vp-content data-v-433401d2 data-v-d5b7fbc1><!--[--><div class="vp-not-found" data-v-d5b7fbc1 data-v-3c444574><p class="code" data-v-3c444574>404</p><h1 class="title" data-v-3c444574><bdi data-v-3c444574>PAGE NOT FOUND</bdi></h1><div class="divider" data-v-3c444574></div><blockquote class="quote" data-v-3c444574><bdi data-v-3c444574>But if you don&#39;t change your direction, and if you keep looking, you may end up where you are heading.</bdi></blockquote><div class="action" data-v-3c444574><a class="link" href="/vuepress-v2/" aria-label="go to home" data-v-3c444574><bdi data-v-3c444574>Take me home</bdi></a></div></div><!--]--></div><!----><!--[--><!--]--></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/vuepress-v2/assets/app-DhNpujvM.js" defer></script>
+  </body>
+</html>

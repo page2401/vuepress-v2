@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN" data-appearance="auto">
+  <head>
+    <script>
+      ;(() => {
+        const root = document.documentElement
+        // appearance is injected into this template at build time, so the very
+        // first paint can follow the site config instead of only the browser
+        // preferences and the storage
+        const appearance = root.dataset.appearance || 'auto'
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches
+        let isDark = false
+
+        if (appearance === 'force-dark') {
+          isDark = true
+        } else if (appearance === 'force-auto') {
+          isDark = prefersDark
+        } else if (appearance === 'light') {
+          isDark = false
+        } else {
+          const fallback = appearance === 'dark' ? 'dark' : 'auto'
+          const preference =
+            localStorage.getItem('vuepress-color-scheme') || fallback
+
+          isDark = preference === 'auto' ? prefersDark : preference === 'dark'
+        }
+
+        root.dataset.theme = isDark ? 'dark' : 'light'
+      })()
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.32" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      html[data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+
+      /* the theme css is loaded asynchronously, so the first paint has to use
+         the theme text color to avoid a flash of the browser default color */
+      body {
+        color: #3c3c43;
+      }
+
+      html[data-theme='dark'] body {
+        color: #dfdfd6;
+      }
+    </style>
+    <title>01. 专属标注与元数据 | VuePress v2 (2.0-rc.32)</title><meta name="description" content="测试 VuePress v2 (2.0.0-rc.32) 基于官方 @vuepress/plugin-markdown-hint 的容器、折叠块、GFM Alerts 与 Badge 组件。">
+    <link rel="preload" href="/vuepress-v2/assets/style-B43CTjeu.css" as="style"><link rel="stylesheet" href="/vuepress-v2/assets/style-B43CTjeu.css">
+    <link rel="modulepreload" href="/vuepress-v2/assets/app-DhNpujvM.js"><link rel="modulepreload" href="/vuepress-v2/assets/01-annotations-C6x2wB2z.js">
+    
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container" data-v-433401d2><!--[--><!--]--><!--[--><span tabindex="-1" data-v-46f487f3></span><a href="#vp-content" class="vp-skip-link visually-hidden" data-v-46f487f3>Skip to content</a><!--]--><!----><header class="vp-nav" data-v-433401d2 data-v-aada68e1><div class="vp-navbar has-sidebar top" data-v-aada68e1 data-v-5deedf4d><div class="wrapper" data-v-5deedf4d><div class="container" data-v-5deedf4d><div class="title" data-v-5deedf4d><div class="vp-navbar-title has-sidebar" data-v-5deedf4d data-v-d76ab35c><a class="route-link title" href="/vuepress-v2/" title="VuePress v2 (2.0-rc.32)" data-v-d76ab35c><!--[--><!--]--><!----><span data-v-d76ab35c>VuePress v2 (2.0-rc.32)</span><!--[--><!--]--></a></div></div><div class="content" data-v-5deedf4d><div class="content-body" data-v-5deedf4d><!--[--><!--]--><div class="vp-navbar-search search" data-v-5deedf4d data-v-3dc7fb66><!----></div><!----><!----><div class="vp-nav-appearance vp-navbar-appearance appearance" data-v-5deedf4d data-v-70d12294><!----><button class="vp-switch vp-switch-appearance" type="button" role="switch" title aria-label="Appearance" aria-checked="false" data-v-70d12294 data-v-b0e493d4 data-v-a3e796d0><span class="check" data-v-a3e796d0><span class="icon" data-v-a3e796d0><!--[--><span class="vpi-sun sun" aria-hidden="true" data-v-b0e493d4></span><span class="vpi-moon moon" aria-hidden="true" data-v-b0e493d4></span><!--]--></span></span></button></div><!----><!----><!--[--><!--]--><button type="button" class="vp-navbar-hamburger hamburger" aria-label="Menu" aria-expanded="false" data-v-5deedf4d data-v-0b4e1fe9><span class="container" aria-hidden="true" data-v-0b4e1fe9><span class="top" data-v-0b4e1fe9></span><span class="middle" data-v-0b4e1fe9></span><span class="bottom" data-v-0b4e1fe9></span></span></button></div></div></div></div><div class="divider" data-v-5deedf4d><div class="divider-line" data-v-5deedf4d></div></div></div><!----></header><div class="vp-local-nav has-sidebar empty" data-v-433401d2 data-v-20397592><div class="container" data-v-20397592><button type="button" class="menu" aria-expanded="false" aria-controls="vp-sidebar-nav" data-v-20397592><span class="vpi-text-align-start menu-icon" aria-hidden="true" data-v-20397592></span><span class="menu-text" data-v-20397592>Menu</span></button><div class="vp-local-nav-outline-dropdown" style="--vp-vh:0px;" data-allow-mismatch="style" data-v-20397592 data-v-a05ca544><button type="button" data-v-a05ca544>Return to top</button><!----></div></div></div><aside class="vp-sidebar" data-v-433401d2 data-v-3c301ce9><div class="curtain" data-v-3c301ce9></div><nav class="nav" id="vp-sidebar-nav" aria-labelledby="sidebar-aria-label" tabindex="-1" data-v-3c301ce9><span class="visually-hidden" id="sidebar-aria-label" data-v-3c301ce9> Sidebar Navigation </span><!--[--><!--]--><!--[--><div class="no-transition group" data-v-a6ea8bdf><div class="vp-sidebar-item level-0" data-v-a6ea8bdf data-v-bc1f2e99><!----><ul class="items" data-v-bc1f2e99><li data-v-bc1f2e99><!--[--><div class="vp-sidebar-item level-1" data-v-bc1f2e99><div class="item" data-v-bc1f2e99><div class="indicator" data-v-bc1f2e99></div><p class="text" data-v-bc1f2e99><!----><bdi data-v-bc1f2e99>VuePress v2 基准套件</bdi></p><!----></div><!----></div><!--]--></li></ul></div></div><!--]--><!--[--><!--]--></nav></aside><div class="vp-content has-sidebar" id="vp-content" vp-content data-v-433401d2 data-v-d5b7fbc1><div class="vp-doc-layout has-sidebar has-aside" data-v-d5b7fbc1 data-v-b6fc8191><!--[--><!--]--><div class="container" data-v-b6fc8191><div class="aside" data-v-b6fc8191><div class="aside-curtain" data-v-b6fc8191></div><div class="aside-container" data-v-b6fc8191><div class="aside-content" data-v-b6fc8191><div class="vp-doc-aside" data-v-b6fc8191 data-v-cd5a76dd><!--[--><!--]--><!--[--><!--]--><nav aria-labelledby="doc-outline-aria-label" class="vp-doc-aside-outline" data-v-cd5a76dd data-v-e2a5de67><div class="content" data-v-e2a5de67><div class="outline-marker" data-v-e2a5de67></div><div aria-level="2" class="outline-title" id="doc-outline-aria-label" role="heading" data-v-e2a5de67>On this page</div><ul class="vp-doc-outline-item root" data-v-e2a5de67 data-v-6576e256><!--[--><!--]--></ul></div></nav><!--[--><!--]--><div class="spacer" data-v-cd5a76dd></div><!--[--><!--]--><!--[--><!--]--><!--[--><!--]--></div></div></div></div><div class="content" data-v-b6fc8191><div class="content-container" data-v-b6fc8191><!--[--><!--]--><main class="main" data-v-b6fc8191><div class="vp-doc _01-annotations" data-v-b6fc8191><h1 id="_01-专属标注与元数据" tabindex="-1"><a class="header-anchor" href="#_01-专属标注与元数据"><span>01. 专属标注与元数据 <span class="vp-badge tip" dir="auto" vertical="middle"><!--[-->vuepress@2.0-rc.32<!--]--></span></span></a></h1><p>不同静态网站生成器对“提示框 / 标注（Callouts / Admonitions）”和页面元数据的语法约定存在显著分歧。本页展示 <strong>VuePress v2 (<code>2.0.0-rc.32</code>)</strong> 配合官方 <code>@vuepress/plugin-markdown-hint@2.0.0-rc.141</code> 的表现。</p><h2 id="_1-frontmatter-元数据机制" tabindex="-1"><a class="header-anchor" href="#_1-frontmatter-元数据机制"><span>1. Frontmatter 元数据机制</span></a></h2><p>VuePress v2 采用宽松 YAML Frontmatter，首页配置字段与 VitePress 略有不同（如使用 <code>home: true</code>、<code>heroText</code> 而非 <code>layout: home</code>、<code>hero.name</code>）。内置全局 <code>&lt;Badge&gt;</code> 组件支持 <code>type=&quot;tip|warning|danger&quot;</code> 与 <code>vertical</code> 对齐参数：<span class="vp-badge tip" dir="auto"><!--[-->Tip<!--]--></span> <span class="vp-badge warning" dir="auto"><!--[-->Warning<!--]--></span> <span class="vp-badge danger" dir="auto"><!--[-->Danger<!--]--></span>。</p><h2 id="_2-标准提示容器-official-hint-containers" tabindex="-1"><a class="header-anchor" href="#_2-标准提示容器-official-hint-containers"><span>2. 标准提示容器（Official Hint Containers）</span></a></h2><p>相比 VuePress v1 仅支持 <code>tip</code>/<code>warning</code>/<code>danger</code> 三种提示框，VuePress v2 的官方 <code>markdownHintPlugin({ hint: true })</code> 完整覆盖了 <code>info</code>、<code>note</code>、<code>tip</code>、<code>important</code>、<code>warning</code>、<code>caution</code>/<code>danger</code>：</p><div class="hint-container info"><p class="hint-container-title">相关信息</p><p>默认信息提示块：静态站点对比平台的每个子模块均独立维护 <code>main</code>（源码）与 <code>page</code>（构建产物）双分支，互不污染提交历史。</p></div><div class="hint-container tip"><p class="hint-container-title">性能优化建议（自定义标题）</p><p>在 VuePress v2 中，自定义标题同样直接写在 <code>::: tip </code> 空格之后，语法体验与 VitePress 一脉相承。</p></div><div class="hint-container warning"><p class="hint-container-title">版本边界注意</p><p>在旧版 VuePress v1 中编写 <code>::: info</code> 不会生效（v1 仅内置 <code>tip</code>/<code>warning</code>/<code>danger</code>），升级至 VuePress v2 后才由官方 <code>plugin-markdown-hint</code> 补齐。</p></div><div class="hint-container caution"><p class="hint-container-title">不可逆分支覆盖警告</p><p>自动化流水线在向 <code>page</code> 分支推送构建产物时会启用 <code>force_orphan: true</code>（注：VuePress v2 将危险容器关键字统一向 GFM 对齐为 <code>caution</code> / <code>danger</code>）。</p></div><h2 id="_3-原生可折叠详情容器-details-block" tabindex="-1"><a class="header-anchor" href="#_3-原生可折叠详情容器-details-block"><span>3. 原生可折叠详情容器（Details Block）</span></a></h2><details class="hint-container details"><summary>点击展开查看 VuePress v2 容器语法源码结构</summary><div class="language-markdown line-numbers-mode" data-highlighter="shiki" data-ext="markdown" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;"><pre class="shiki shiki-themes github-light github-dark vp-code"><code class="language-markdown"><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">::: tip 性能优化建议（自定义标题）</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">自定义标题直接跟在类型关键字空格后。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div></details><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e;"><pre class="shiki shiki-themes github-light github-dark vp-code"><code class="language-"><span class="line"><span>除了代码块，折叠容器内同样支持列表、表格与数学公式 $f(x) = x^2 + 1$。</span></span>
+<span class="line"><span>:::</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>## 4. GitHub 风格引用警报（GFM Alerts）兼容性</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>在配置 `markdownHintPlugin({ alert: true })` 后，原始 GFM Alert 语法同样原生可用：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&gt; [!NOTE]</span></span>
+<span class="line"><span>&gt; 这是一段标准的 GitHub Flavored Markdown `[!NOTE]` 警报文本。VuePress v2 开启 `alert: true` 后可原生解析。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&gt; [!IMPORTANT]</span></span>
+<span class="line"><span>&gt; 跨平台迁移 Markdown 文档时，是否原生兼容 `&gt; [!IMPORTANT]` 与 `&gt; [!WARNING]` 直接决定了旧文档的改造成本。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&gt; [!CAUTION]</span></span>
+<span class="line"><span>&gt; 若目标生成器未内置 GFM Alert 解析器，上方标记会退化为普通引用块并原样露出 `[!CAUTION]` 字符串。</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></main><footer class="vp-doc-footer" data-v-b6fc8191 data-v-cacd08e6><!--[--><!--]--><!----><!----></footer><!--[--><!--]--></div></div></div><!--[--><!--]--></div></div><!----><!--[--><!--]--></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/vuepress-v2/assets/app-DhNpujvM.js" defer></script>
+  </body>
+</html>
